@@ -5,7 +5,7 @@ extern crate blake3;
 extern crate base64;
 
 #[no_mangle]
-pub extern "C" fn hash(h: *const c_char) -> *const c_char {
+pub extern "C" fn base64(h: *const c_char) -> *const c_char {
     let b = unsafe { CStr::from_ptr(h).to_bytes() };
     let hash = blake3::hash(&b);
     let c_str = CString::new(base64::encode(hash.as_bytes())).unwrap();
@@ -15,7 +15,7 @@ pub extern "C" fn hash(h: *const c_char) -> *const c_char {
 }
 
 #[no_mangle]
-pub extern "C" fn hex(h: *const c_char) -> *const c_char {
+pub extern "C" fn hash(h: *const c_char) -> *const c_char {
     let b = unsafe { CStr::from_ptr(h).to_bytes() };
     let hash = blake3::hash(&b);
     let c_str = CString::new(hash.to_hex().as_str()).unwrap();
