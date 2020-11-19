@@ -1,0 +1,11 @@
+[lib]
+crate-type =["cdylib"]
+
+[package]
+name = "blake3_c"
+version = "0.1.0"
+authors = ["Eduardo Tongson <propolice@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+blake3 = "0.3.7"
