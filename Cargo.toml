@@ -1,3 +1,6 @@
+[profile.release]
+panic = "abort"
+
 [lib]
 crate-type =["cdylib"]
 
