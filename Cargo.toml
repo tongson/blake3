@@ -1,5 +1,8 @@
 [profile.release]
 panic = "abort"
+codegen-units = 1
+lto = true
+debug = false
 
 [lib]
 crate-type =["cdylib"]
