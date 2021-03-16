@@ -1,5 +1,5 @@
 use std::ffi::CStr;
-use std::os::raw::c_char;
+use std::os::raw::{c_char, c_uint, c_int, c_uchar};
 use std::panic;
 use std::slice;
 
@@ -7,7 +7,7 @@ extern crate base64;
 extern crate blake3;
 
 #[no_mangle]
-pub extern "C" fn hash(h: *const c_char, ptr: *mut u8, size: u32) -> i32 {
+pub extern "C" fn hash(h: *const c_char, ptr: *mut c_uchar, size: c_uint) -> c_int {
   panic::set_hook(Box::new(move |_| eprintln!("panic: blake3.hash()")));
   let b = unsafe { CStr::from_ptr(h).to_bytes() };
   let data = match base64::decode(&b) {
