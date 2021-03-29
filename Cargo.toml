@@ -8,8 +8,8 @@ debug = false
 crate-type =["cdylib"]
 
 [package]
-name = "blake"
-version = "0.1.0"
+name = "ljblake3"
+version = "0.2.0"
 authors = ["Eduardo Tongson <propolice@gmail.com>"]
 edition = "2018"
 
